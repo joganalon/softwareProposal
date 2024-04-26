@@ -1,0 +1,6 @@
+from django.urls import path
+from . import views
+
+urlpatterns = {
+    path('logInPage/', views.logInPage, name='logInPage')
+}
