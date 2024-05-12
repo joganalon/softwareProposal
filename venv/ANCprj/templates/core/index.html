@@ -1,14 +1,476 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title> eCanteen </title>
-    </head>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <body>
-        hello
-    </body>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alfa Slab One:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto Flex:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="ecanteen">
 
-</html>
+     header here 
+     
+      <div class="below-searchbar-wrapper">
+        <div class="below-searchbar">
+          <div class="browse-option">
+            <div class="browse-all-categories-wrapper">
+              <div class="browse-all-categories">Browse All Categories</div>
+            </div>
+            <img
+              class="gridiconsdropdown1"
+              alt=""
+              src="./public/gridiconsdropdown1.svg"
+            />
+          </div>
+          <div class="content-option-labels">
+            <div class="e-canteen">E-Canteen</div>
+          </div>
+          <div class="content-option-labels1">
+            <div class="profile">Profile</div>
+          </div>
+          <div class="content-option-labels2">
+            <div class="newsfeed">Newsfeed</div>
+          </div>
+          <div class="vendor-seat-labels-wrapper">
+            <div class="vendor-seat-labels">
+              <div class="vendors">Vendors</div>
+              <div class="seats">Seats</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="ecanteen-inner">
+        <div class="frame-parent1">
+          <div class="frame-parent2">
+            <div class="filters-parent">
+              <div class="filters">
+                <div class="filters1">Filters</div>
+                <div class="dashiconssort-wrapper">
+                  <img
+                    class="dashiconssort"
+                    alt=""
+                    src="./public/dashiconssort.svg"
+                  />
+                </div>
+              </div>
+              <div class="by-diet">
+                <div class="by-dietary-preference-wrapper">
+                  <div class="by-dietary-preference">By Dietary Preference</div>
+                </div>
+                <div class="by-diet-inner">
+                  <div class="frame-item"></div>
+                </div>
+                <div class="diet-option-labels-parent">
+                  <button class="diet-option-labels">
+                    <div class="meat">Meat</div>
+                  </button>
+                  <button class="diet-option-labels1">
+                    <div class="seafood">Seafood</div>
+                  </button>
+                  <button class="diet-option-labels2">
+                    <div class="vegan">Vegan</div>
+                  </button>
+                  <button class="diet-option-labels3">
+                    <div class="low-carb">Low-Carb</div>
+                  </button>
+                  <button class="diet-option-labels4">
+                    <div class="glutten-free">Glutten-Free</div>
+                  </button>
+                  <button class="diet-option-labels5">
+                    <div class="allergen-free">Allergen-Free</div>
+                  </button>
+                  <button class="nut-free-wrapper">
+                    <div class="nut-free">Nut-Free</div>
+                  </button>
+                  <button class="diet-option-labels6">
+                    <div class="dairy-free">Dairy-Free</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="by-vendors">
+              <div class="frame-parent3">
+                <div class="by-vendor-wrapper">
+                  <div class="by-vendor">By Vendor:</div>
+                </div>
+                <div class="filter-type-background"></div>
+                <div class="frame-wrapper">
+                  <div class="akar-iconsbox-parent">
+                    <img
+                      class="akar-iconsbox"
+                      alt=""
+                      src="./public/akariconsbox.svg"
+                    />
+
+                    <div class="mangadobo">MangAdobo</div>
+                  </div>
+                </div>
+              </div>
+              <div class="by-vendors-inner">
+                <div class="akar-iconsbox-group">
+                  <img
+                    class="akar-iconsbox1"
+                    alt=""
+                    src="./public/akariconsbox1.svg"
+                  />
+
+                  <div class="shop1">shop1</div>
+                </div>
+              </div>
+              <div class="by-vendors-child">
+                <div class="akar-iconsbox-container">
+                  <img
+                    class="akar-iconsbox2"
+                    alt=""
+                    src="./public/akariconsbox.svg"
+                  />
+
+                  <div class="shop2">shop2</div>
+                </div>
+              </div>
+            </div>
+            <div class="by-tags">
+              <div class="frame-parent4">
+                <div class="by-popular-tags-wrapper">
+                  <div class="by-popular-tags">By Popular Tags</div>
+                </div>
+                <div class="frame-inner"></div>
+              </div>
+              <div class="by-tags-inner">
+                <div class="frame-parent5">
+                  <div class="mdiremove-wrapper">
+                    <img
+                      class="mdiremove-icon"
+                      alt=""
+                      src="./public/mdiremove.svg"
+                    />
+                  </div>
+                  <div class="adobo">adobo</div>
+                </div>
+              </div>
+              <div class="by-tags-child">
+                <div class="mdiremove-parent">
+                  <img
+                    class="mdiremove-icon1"
+                    alt=""
+                    src="./public/mdiremove.svg"
+                  />
+
+                  <div class="meat1">meat</div>
+                </div>
+              </div>
+              <div class="by-tags-inner1">
+                <div class="mdiremove-group">
+                  <img
+                    class="mdiremove-icon2"
+                    alt=""
+                    src="./public/mdiremove.svg"
+                  />
+
+                  <div class="karne">karne</div>
+                </div>
+              </div>
+              <div class="by-tags-inner2">
+                <div class="mdiremove-container">
+                  <img
+                    class="mdiremove-icon3"
+                    alt=""
+                    src="./public/mdiremove.svg"
+                  />
+
+                  <div class="unli-rice">unli rice</div>
+                </div>
+              </div>
+            </div>
+            <div class="by-price">
+              <div class="by-price-wrapper">
+                <div class="by-price1">By Price</div>
+              </div>
+              <div class="by-price-child"></div>
+              <div class="from50-parent">
+                <div class="from50">
+                  <span>From:</span>
+                  <span class="span">50</span>
+                </div>
+                <div class="to500">
+                  <span>To:</span>
+                  <span class="span1">500</span>
+                </div>
+              </div>
+              <div class="actual-price-wrapper">
+                <div class="actual-price">
+                  <div class="p-50000">P 500.00</div>
+                </div>
+              </div>
+              <div class="filter-wrapper">
+                <div class="filter">
+                  <div class="filter1">Filter</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="suggestions-parent">
+            <div class="suggestions">
+              <div class="suggested-items">Suggested Items</div>
+              <div class="suggestion-items">
+                <div class="rectangle-parent">
+                  <img
+                    class="rectangle-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./public/rectangle-4@2x.png"
+                  />
+
+                  <div class="item-content">
+                    <div class="item-details">
+                      <div class="chicken-adobo">Chicken Adobo</div>
+                      <div class="item-rating">
+                        <div class="material-symbolsstar">
+                          <img
+                            class="vector-icon"
+                            alt=""
+                            src="./public/vector.svg"
+                          />
+                        </div>
+                        <div class="empty">(5)</div>
+                      </div>
+                      <div class="by-mangadobo">
+                        <span>By </span>
+                        <span class="mangadobo1">MangAdobo</span>
+                      </div>
+                    </div>
+                    <div class="price-and-add">
+                      <div class="item-price">
+                        <div class="actual-price1">
+                          <div class="p-4000">P 40.00</div>
+                          <div class="price-amount">
+                            <div class="p-5000">P 50.00</div>
+                          </div>
+                        </div>
+                        <div class="add-button">
+                          <img
+                            class="game-iconsmeal"
+                            alt=""
+                            src="./public/gameiconsmeal.svg"
+                          />
+
+                          <div class="add">
+                            <div class="add1">Add</div>
+                          </div>
+                        </div>
+                        <img
+                          class="mdifavourite-border-icon"
+                          alt=""
+                          src="./public/mdifavouriteborder.svg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rectangle-group">
+                  <img
+                    class="frame-child1"
+                    alt=""
+                    src="./public/rectangle-4-5@2x.png"
+                  />
+
+                  <div class="some-texts-wrapper">
+                    <div class="some-texts"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="frame-wrapper1">
+              <div class="meals-parent">
+                <div class="meals">Meals</div>
+                <div class="frame-parent6">
+                  <div class="rectangle-wrapper">
+                    <img
+                      class="frame-child2"
+                      alt=""
+                      src="./public/rectangle-4-1@2x.png"
+                    />
+                  </div>
+                  <div class="rectangle-container">
+                    <img
+                      class="frame-child3"
+                      alt=""
+                      src="./public/rectangle-4-6@2x.png"
+                    />
+
+                    <div class="some-texts-container">
+                      <div class="some-texts1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="frame-wrapper2">
+              <div class="desserts-parent">
+                <div class="desserts">Desserts</div>
+                <div class="frame-parent7">
+                  <div class="rectangle-frame">
+                    <img
+                      class="frame-child4"
+                      alt=""
+                      src="./public/rectangle-4-2@2x.png"
+                    />
+                  </div>
+                  <div class="rectangle-parent1">
+                    <img
+                      class="frame-child5"
+                      alt=""
+                      src="./public/rectangle-4-8@2x.png"
+                    />
+
+                    <div class="some-texts-frame">
+                      <div class="some-texts2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="graphic-t-shirt-white">
+              <div class="beverages-parent">
+                <div class="beverages">Beverages</div>
+                <div class="frame-parent8">
+                  <div class="rectangle-wrapper1">
+                    <img
+                      class="frame-child6"
+                      alt=""
+                      src="./public/rectangle-4-3@2x.png"
+                    />
+                  </div>
+                  <div class="rectangle-parent2">
+                    <img
+                      class="frame-child7"
+                      alt=""
+                      src="./public/rectangle-4-10@2x.png"
+                    />
+
+                    <div class="some-texts-wrapper1">
+                      <div class="some-texts3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="n-y-lon-coach-jacket-black">
+              <div class="snacks-parent">
+                <div class="snacks">Snacks</div>
+                <div class="frame-parent9">
+                  <div class="rectangle-wrapper2">
+                    <img
+                      class="frame-child8"
+                      alt=""
+                      src="./public/rectangle-4-4@2x.png"
+                    />
+                  </div>
+                  <div class="rectangle-parent3">
+                    <img
+                      class="frame-child9"
+                      alt=""
+                      src="./public/rectangle-4-12@2x.png"
+                    />
+
+                    <div class="some-texts-wrapper2">
+                      <div class="some-texts4"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer">
+        <div class="footer-2">
+          <div class="footer-info">
+            <div class="brand">
+              <div class="brand-name">
+                <div class="anc1">ANC</div>
+              </div>
+              <div class="ateneocanteen1">AteNeoCanteen</div>
+            </div>
+          </div>
+          <div class="navigation">
+            <div class="nav-container">
+              <div class="menu">
+                <div class="menuheader">
+                  <div class="about">About</div>
+                  <div class="features">Features</div>
+                  <div class="pricing">Pricing</div>
+                  <div class="gallery">Gallery</div>
+                  <div class="team">Team</div>
+                </div>
+              </div>
+              <div class="social-links">
+                <div class="search-input">
+                  <div class="search1">
+                    <div class="search-container">
+                      <div class="search2">search...</div>
+                      <img class="union-icon" alt="" src="./public/union.svg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="links">
+                  <img class="social-icon" alt="" src="./public/social.svg" />
+                </div>
+                <div class="social-media">
+                  <div class="social-icons">
+                    <img
+                      class="social-icon1"
+                      alt=""
+                      src="./public/social.svg"
+                    />
+
+                    <img
+                      class="social-icon2"
+                      alt=""
+                      src="./public/social.svg"
+                    />
+                  </div>
+                </div>
+                <div class="links1">
+                  <img
+                    class="social-icon3"
+                    alt=""
+                    src="./public/social@2x.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="separator"></div>
+            <div class="menufooter">
+              <div class="privacy-policy">Privacy Policy</div>
+              <div class="terms-of-use">Terms of Use</div>
+              <div class="sales-and-refunds">Sales and Refunds</div>
+              <div class="legal">Legal</div>
+              <div class="site-map">Site Map</div>
+            </div>
+          </div>
+        </div>
