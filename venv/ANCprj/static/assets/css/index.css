@@ -7,7 +7,7 @@
   display: inline-block;
   min-width: 87px;
   flex-shrink: 0;
-  debug_commit: 1de1738;
+ /* debug_commit: 1de1738;*/
   white-space: nowrap;
 }
 .anc-wrapper {
@@ -26,7 +26,7 @@
   display: inline-block;
   min-width: 84.7px;
   flex-shrink: 0;
-  debug_commit: 1de1738;
+  /*debug_commit: 1de1738;*/
 }
 .frame-group {
   position: absolute;
@@ -1631,7 +1631,7 @@
   display: inline-block;
   min-width: 87px;
   flex-shrink: 0;
-  debug_commit: 1de1738;
+  /*debug_commit: 1de1738;*/
 }
 .brand-name {
   height: 38px;
@@ -1649,7 +1649,7 @@
   display: inline-block;
   min-width: 84.7px;
   flex-shrink: 0;
-  debug_commit: 1de1738;
+  /*debug_commit: 1de1738;*/
 }
 .brand,
 .footer-info {
@@ -2031,4 +2031,4 @@
   .social-links {
     flex-wrap: wrap;
   }
-  
+}
