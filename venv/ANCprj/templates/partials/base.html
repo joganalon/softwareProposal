@@ -1,3 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/index.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alfa Slab One:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto Flex:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+    />
+    <title> {% block title %} eCanteen {% endblock %}</title>
+  </head>
+
 <header class="frame-parent">
   <div class="frame-group">
     <div class="anc-wrapper">
@@ -68,3 +100,79 @@
     </div>
   </div>
 </header>
+
+{% block content %}
+
+{% endblock content %}
+
+<section class="footer">
+  <div class="footer-2">
+    <div class="footer-info">
+      <div class="brand">
+        <div class="brand-name">
+          <div class="anc1">ANC</div>
+        </div>
+        <div class="ateneocanteen1">AteNeoCanteen</div>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="nav-container">
+        <div class="menu">
+          <div class="menuheader">
+            <div class="about">About</div>
+            <div class="features">Features</div>
+            <div class="pricing">Pricing</div>
+            <div class="gallery">Gallery</div>
+            <div class="team">Team</div>
+          </div>
+        </div>
+        <div class="social-links">
+          <div class="search-input">
+            <div class="search1">
+              <div class="search-container">
+                <div class="search2">search...</div>
+                <img class="union-icon" alt="" src="./public/union.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="links">
+            <img class="social-icon" alt="" src="./public/social.svg" />
+          </div>
+          <div class="social-media">
+            <div class="social-icons">
+              <img
+                class="social-icon1"
+                alt=""
+                src="./public/social.svg"
+              />
+
+              <img
+                class="social-icon2"
+                alt=""
+                src="./public/social.svg"
+              />
+            </div>
+          </div>
+          <div class="links1">
+            <img
+              class="social-icon3"
+              alt=""
+              src="./public/social@2x.png"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <div class="menufooter">
+        <div class="privacy-policy">Privacy Policy</div>
+        <div class="terms-of-use">Terms of Use</div>
+        <div class="sales-and-refunds">Sales and Refunds</div>
+        <div class="legal">Legal</div>
+        <div class="site-map">Site Map</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</body>
+</html>
