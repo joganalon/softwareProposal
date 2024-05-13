@@ -1,18 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-</head>
-<body>
-    halu 
-   
-    <form action="" method="POST">
-        {%csrf_token%}
-        {{form}}
-        <button type="submit">register</button>
-    </form>
+{% extends 'partials/base.html %}
+{% load static %}
 
+{% block content %}
+<body>
+    <div class="create-account">
+        <section class="main-content">
+            <div class="account-creation">
+                <div class="account-title">
+                    <h1 class="create-an-account">Create an Account</h1>
+                </div>
+
+                <div class="login-form">
+                <div class="login-form-inner">
+                <div class="frame-parent2">
+                <div class="already-have-an-account-login-wrapper">
+                    <div class="already-have-an-container">
+                        <span>Already have an account? </span>
+                        <span class="login">Login</span>
+                        <span> </span>
+                        <span class="here">here</span>
+                        <span>.</span>
+                    </div>
+                </div>
+
+                <div> 
+                    <form action="" method="POST">
+                    {%csrf_token%}
+                    {{form}}
+                    <button type="submit">register</button>
+                    </form>
+                </div>
+
+                <div class="security-code-field">
+                    <div class="security-code-input"></div>
+                    <button class="security-code-wrapper">
+                        <div class="security-code">Security Code</div>
+                    </button>
+                </div>
+
+                <div class="remember-me-field">
+                    <div class="frame-parent3">
+                        <div class="remember-me-input">
+                            <input class="remember-me-background" type="checkbox" />
+                                <div class="remember-me">Remember me</div>
+                            </div>
+                            <div class="user-type">
+                                <div class="user-type-buttons">
+                                    <div class="user-type-icons"></div>
+                                    <div class="i-am-a">I am a student</div>
+                                </div>
+                                <div class="user-type-buttons1">
+                                    <div class="user-type-buttons-child"></div>
+                                    <div class="i-am-a1">I am a vendor</div>
+                                </div>
+                            </div>
+
+                            <div class="terms-field">
+                                <input class="terms-background" type="checkbox" />
+                                <div class="i-agree-to">I agree to terms and policy.</div>
+                            </div>
+                            <button class="submit-button">
+                                <div class="submit-and-register">Submit and Register</div>
+                            </button>
+                        </div>
+
+                        <div class="remember-me-field-inner">
+                            <div class="frame-parent4">
+                                <input class="frame-input" type="checkbox" />
+
+                                <div class="frame-parent5">
+                                    <div class="frame-wrapper">
+                                        <button class="info-placeholder-wrapper">
+                                            <div class="info-placeholder">8 6 4 8</div>
+                                        </button>
+                                    </div>
+                                    <div class="learn-more">Learn more.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-login">
+                <button class="social-buttons">
+                    <div class="continue-with-google">Continue with Google</div>
+                </button>
+                <button class="social-buttons1">
+                    <div class="continue-with-adnu">Continue with ADNU Gbox</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 </body>
-</html>
+
+{% endblock content%}
