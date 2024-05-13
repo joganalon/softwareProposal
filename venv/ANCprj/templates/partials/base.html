@@ -29,6 +29,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"/>
 
     <title> {% block title %} eCanteen {% endblock title %}</title>
+
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.js"
+			  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			  crossorigin="anonymous"></script>
   </head>
 
   <header class="frame-parent">
@@ -127,6 +132,19 @@
           </div>
         </div>
       </div>
+    </div>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+          <strong>{{message}}</strong>
+        </div>
+      {% endfor %}
+    {% endif %}
+    <script>
+      setTimeout(() => {
+        $(".alert").alert("close");
+      }, 3)
+    </script>
 </header>
 
 {% block content %}
