@@ -1,10 +1,13 @@
-{% extends 'partials/base.html %}
+{% extends 'partials/base.html' %}
 {% load static %}
 
 {% block title %} Sign In {% endblock title %}
 
 {% block content %}
 <body>
+    <div class="sign-in-container">
+        <p class="Don't have an account?"">Do not have an account? <a href="{% url 'userauths:sign-up' %}">Create here.</a></p>
+    </div>
     <form method="POST">
         {%csrf_token%}
         <div class="form-group">
