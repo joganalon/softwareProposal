@@ -7,37 +7,39 @@
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
     <link rel="stylesheet" href="{% static '/assets/css/index.css' %}" />
+
+    {% block css %}
+
+    {% endblock css %}
+
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Alfa Slab One:wght@400&display=swap"
-    />
+      href="https://fonts.googleapis.com/css2?family=Alfa Slab One:wght@400&display=swap"/>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto Flex:wght@400&display=swap"
-    />
+      href="https://fonts.googleapis.com/css2?family=Roboto Flex:wght@400&display=swap"/>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap"
-    />
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap"/>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
-    />
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
-    />
-    <title> {% block title %} eCanteen {% endblock %}</title>
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"/>
+
+    <title> {% block title %} eCanteen {% endblock title %}</title>
   </head>
 
-<header class="frame-parent">
-  <div class="frame-group">
-    <div class="anc-wrapper">
-      <h1 class="anc">ANC</h1>
+  <header class="frame-parent">
+    <div class="frame-group">
+      <div class="anc-wrapper">
+        <h1 class="anc">ANC</h1>
+      </div>
+      <div class="ateneocanteen">AteNeoCanteen</div>
     </div>
-    <div class="ateneocanteen">AteNeoCanteen</div>
-  </div>
-  <div class="vector-parent">
+    
+    <div class="vector-parent">
     <img class="frame-child" alt="" src="./public/rectangle-33.svg" />
 
     <div class="search-bar">
@@ -100,9 +102,38 @@
     </div>
   </div>
   <div class="breadcrumb"></div>
+
+    <div class="ecanteen">
+      <div class="below-searchbar-wrapper">
+        <div class="below-searchbar">
+          <div class="browse-option">
+            <div class="browse-all-categories-wrapper">
+              <div class="browse-all-categories">Browse All Categories</div>
+            </div>
+            <img
+              class="gridiconsdropdown1"
+              alt=""
+              src="./public/gridiconsdropdown1.svg"
+            />
+          </div>
+          <div class="content-option-labels">
+            <div class="e-canteen">E-Canteen</div>
+          </div>
+          <div class="content-option-labels1">
+            <div class="profile">Profile</div>
+          </div>
+          <div class="content-option-labels2">
+            <div class="newsfeed">Newsfeed</div>
+          </div>
+          <div class="vendor-seat-labels-wrapper">
+            <div class="vendor-seat-labels">
+              <div class="vendors">Vendors</div>
+              <div class="seats">Seats</div>
+            </div>
+          </div>
+        </div>
+      </div>
 </header>
-
-
 
 {% block content %}
 
