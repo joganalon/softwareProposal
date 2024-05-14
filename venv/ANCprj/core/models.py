@@ -123,7 +123,7 @@ class ProductImages(models.Model):
 
 ######################## Cart, Order, OrderItems ##########
 
-class FoodOrder(models.Model):
+class FoodTray(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=999, decimal_places=2, default='49.99')
     payment_status = models.BooleanField(default=False)
@@ -131,13 +131,58 @@ class FoodOrder(models.Model):
     product_status = models.CharField(choices=STATUS_CHOICE, max_length=30, default='received')
 
     class Meta:
-        verbose_name_plural = 'Food Orders'
+        verbose_name_plural = 'Food Trays'
 
 class OrderedProducts(models.Model):
-    order = models.ForeignKey(FoodOrder, on_delete=models.CASCADE)
+    order = models.ForeignKey(FoodTray, on_delete=models.CASCADE)
+    invoice_no = models.CharField(max_length=200)
     product_status = models.CharField(max_length=200)
     item = models.CharField(max_length=200)
     image = models.CharField(max_length=200)
     qty = models.IntegerField(default=0)
     price = models.DecimalField(max_digits=999, decimal_places=2, default='49.99')
     total = models.DecimalField(max_digits=999, decimal_places=2, default='49.99')
+
+    class Meta:
+        verbose_name_plural = 'Food Orders'
+
+    def order_image(self):
+        return mark_safe('<img src="/media/%s" width="50" height="50" />' % (self.image))
+    
+
+    ######################### Product review, favourites, address #######################
+
+class ProductReview(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    review = models.TextField()
+    rating = models.IntegerField(choices=RATING, default=None)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'Product Reviews'
+
+    def __str__(self):
+        return self.product.title
+        
+    def get_rating(self):
+        return self.ratings
+        
+class Favourite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'Favourites'
+
+    def __str__(self):
+        return self.product.title
+        
+class TableNum(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    tableNum = models.IntegerField(null=True)
+    status = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural = 'Table Numbers'
