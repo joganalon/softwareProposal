@@ -45,8 +45,8 @@ class Category(models.Model):
     def __str__(self):
         return self.title
     
-class Tags(models.Model):
-    pass
+#class Tags(models.Model):
+ #   pass
     
 
 class Vendor(models.Model):
@@ -78,6 +78,7 @@ class Product(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
 
     title = models.CharField(max_length=100, default='Product.')
     image = models.ImageField(upload_to='category', default='product.jpg')
@@ -87,7 +88,7 @@ class Product(models.Model):
     old_price = models.DecimalField(max_digits=999, decimal_places=2, default='59.99')
 
     specification = models.TextField(null=True, blank=True)
-    tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
+   # tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
 
     product_status = models.CharField(choices=STATUS, max_length=15, default='in_review')
 
