@@ -108,6 +108,9 @@
           <div class="browse-option">
             <div class="browse-all-categories-wrapper">
               <div class="browse-all-categories">Browse All Categories</div>
+             {% for c in categories %}
+              {{c.title}}
+             {% endfor %}
             </div>
             <img
               class="gridiconsdropdown1"
