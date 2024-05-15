@@ -1,1 +1,23 @@
-{{categories.all}}
+{%extends 'partials/base.html'%}
+
+{%block content%}
+<body>
+    <div class="category-holder">
+        <div class="big-txt">Categories</div>
+        <div class="path cat-path">
+            <a href="#">Home</a>
+            <p>Category</p>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="notsobig-txt">{{categories.count}} Categories</div>
+        <div clas="inside">
+            {%for c in categories%}
+                <img class="product-thumbnail" src="{{c.image.url}}"/>
+                <div class="product-name">{{c.title}}</div>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+{%endblock content%}
