@@ -12,7 +12,10 @@
 
     <div class="main">
         <div class="product">
-            
+            {%for p in products%}
+                <img class="product-thumbnail" src="{{p.image.url}}"/>
+                <div class="product-name">{{p.title}}</div>
+            {%endfor%}
         </div>
     </div>
 </body>
