@@ -12,7 +12,7 @@
             <div class="vendors">
                 {%for v in vendors%}
                     <img class="vendor-thumbnail" src="{{v.image.url}}" alt="{{v.product.all.count}} Products"/>
-                    <div class="vendor-name">{{v.title}}</div>
+                    <div class="vendor-name"><a href="{%url 'core:vendor-detail' v.vid%}">{{v.title}}</a></div>
                     <div class="date">Since {{v.date|date:'Y'}}</div>
                 {%endfor%}
             </div>

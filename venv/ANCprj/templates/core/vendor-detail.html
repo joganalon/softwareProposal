@@ -1,0 +1,25 @@
+{%extends 'partials/base.html'%}
+
+{%block content%}
+<body>
+    <div class="main">
+        <section>
+        <div class="vendor-banner">
+            <div class="vendor-name">{{vendor.title}}</div>
+            {{vendor.date|date:'Y'}}
+        </div>
+
+        </section>
+
+        <section>
+          <p>{{products.count}} items</p>
+          {% for p in products %}
+            <img class="product-thumbnail-at-vendor" src="{{p.image.url}}" width="100"/>
+            <div class="product-name">{{p.title}}</div>
+          {%endfor%}
+        </section>
+        
+    </div>
+</body>
+
+{%endblock content%}
