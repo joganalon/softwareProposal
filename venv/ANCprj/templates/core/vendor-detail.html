@@ -15,7 +15,9 @@
           <p>{{products.count}} items</p>
           {% for p in products %}
             <img class="product-thumbnail-at-vendor" src="{{p.image.url}}" width="100"/>
+            <div class="category">{{p.category}}</div>
             <div class="product-name">{{p.title}}</div>
+            <div class="'product-price-at-vendor">{{p.price}}</div>
           {%endfor%}
         </section>
         
