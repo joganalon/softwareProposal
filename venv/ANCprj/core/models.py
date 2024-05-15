@@ -62,7 +62,8 @@ class Vendor(models.Model):
     authentic_rating = models.CharField(max_length=100, default='100')
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
     class Meta:
         verbose_name_plural = 'Vendors'
 
@@ -78,7 +79,7 @@ class Product(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='category')
-    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
+    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, related_name='product')
 
     title = models.CharField(max_length=100, default='Product.')
     image = models.ImageField(upload_to='category', default='product.jpg')

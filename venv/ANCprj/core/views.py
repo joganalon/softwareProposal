@@ -30,3 +30,10 @@ def product_list_category_view(request, cid):
     }
 
     return render(request, 'core/category-product-list.html')
+
+def vendor_list_view(request):
+    vendors = Vendor.objects.all()
+    context = {
+        'vendors': vendors,
+    }
+    return render(request, 'core/vendor-list.html', context)

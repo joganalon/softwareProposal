@@ -1,0 +1,24 @@
+{%extends 'partials/base.html'%}
+
+{%block content%}
+<body>
+    <div class="main">
+        <section>
+        <div class="head-title">Vendors' List</div>
+        search bar
+        </section>
+
+        <section>
+            <div class="vendors">
+                {%for v in vendors%}
+                    <img class="vendor-thumbnail" src="{{v.image.url}}" alt="{{v.product.all.count}} Products"/>
+                    <div class="vendor-name">{{v.title}}</div>
+                    <div class="date">Since {{v.date|date:'Y'}}</div>
+                {%endfor%}
+            </div>
+        </section>
+        
+    </div>
+</body>
+
+{%endblock content%}
