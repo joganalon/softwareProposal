@@ -36,4 +36,23 @@ $("#add-to-cart-btn").on("click", function(){
     console.log("Price:", product_price);
     console.log("ID:", product_id);
     console.log("Current Element:", this_val);
+
+    $.ajax({
+        url:'/add-to-cart',
+        data:{
+            'id':product_id,
+            'qty':quantity,
+            'title':product_title,
+            'price':product_price
+        },
+        dataType: 'json',
+        beforeSend: function(){
+            console.log("Adding product to cart...");
+        },
+        success: function(){
+            this_val.html("item added to cart")
+            console.log("Added product to cart");
+
+        }
+    })
 })
