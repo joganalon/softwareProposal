@@ -2,6 +2,7 @@ from core.models import Product, Vendor, Category, FoodTray, OrderedProducts, Fa
 
 def default(request):
     categories = Category.objects.all()
+    #address=TableNum.objects.get(user=request.user))
     return {
         'categories': categories,
     }

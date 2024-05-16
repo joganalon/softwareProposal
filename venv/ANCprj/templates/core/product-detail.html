@@ -16,12 +16,29 @@
                 <div class="description">
                     <h3>{{product.title}}</h3>
                     <h2>{{product.price}}</h2>
-                    <p>{{product.description}}</p>
+                    <p>{{product.description|truncatechars:100}}</p>
                 </div>
             </div>
 
         </section>
+            <div class="texts-area">
+                <div class="undertextarea">
+                    <h5>Ingredient</h5>
+                    <h6>{{product.ingredients}}</h6>
+                </div>
+                <div class="undertextarea">
+                    <h5>Vendor</h5>
+                    <h6>{{product.vendor.title}}</h6>
+                    <img src="{{product.vendor.image.url}}"width="100"/>
+                    <h7>{{product.vendor.contact}}</h7>
+                    <h7>{{product.vendor.authenticate_rating}}</h7>
+                    <h7>{{product.vendor.chat_resp_time}}</h7>
 
+                </div>
+                <div class="undertextarea">
+                    <h5>Reviews</h5>
+                </div>
+            </div>
         <section>
 
         </section>
