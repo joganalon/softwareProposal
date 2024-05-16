@@ -40,7 +40,13 @@
                     <h7>{{product.vendor.chat_resp_time}}</h7>
                 </div>
                 <div class="undertextarea">
-                    <h5>Reviews</h5>
+                    <h5>Reviews {{reviews.count}}</h5> 
+                    <h6>{{average_rating.rating|floatformat}} out of 5 Stars</h6>
+                    {%for r in reviews %}
+                        {{r.user.username|title}}
+                        {{r.date|date:'d M, Y'}}
+                        {{r.review}}
+                    {%endfor%}
                 </div>
             </div>
         </section>
