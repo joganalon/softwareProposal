@@ -16,8 +16,10 @@
         <div class="notsobig-txt">{{categories.count}} Categories</div>
         <div clas="inside">
             {%for c in categories%}
-                <img class="product-thumbnail" src="{{c.image.url}}"/>
-                <div class="product-name">{{c.title}}</div>
+                <a href="{%url 'core:category-product-list' c.cid%}">
+                    <img class="product-thumbnail" src="{{c.image.url}}"/>
+                    <div class="product-name">{{c.title}}</div>
+                </a>
             {%endfor%}
         </div>
     </div>

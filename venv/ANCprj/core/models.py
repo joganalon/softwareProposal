@@ -2,6 +2,7 @@ from django.db import models
 from shortuuid.django_fields import ShortUUIDField
 from django.utils.html import mark_safe
 from userauths.models import User
+from taggit.managers import TaggableManager
 
 
 STATUS_CHOICE = (
@@ -89,7 +90,8 @@ class Product(models.Model):
     old_price = models.DecimalField(max_digits=999, decimal_places=2, default='59.99')
 
     ingredients = models.TextField(null=True, blank=True)
-   # tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
+
+    tags = TaggableManager(blank=True)
 
     product_status = models.CharField(choices=STATUS, max_length=15, default='in_review')
 

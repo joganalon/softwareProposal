@@ -18,6 +18,11 @@
                     <h2>{{product.price}}</h2>
                     <p>{{product.description|truncatechars:100}}</p>
                 </div>
+                <div class="tags">
+                    {%for tag in product.tags.all%}
+                        <a href="#"> #{{tag.name}}, </a>
+                    {%endfor%}
+                </div>
             </div>
         </section>
         <section>
