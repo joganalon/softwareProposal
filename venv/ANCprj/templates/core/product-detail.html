@@ -52,13 +52,15 @@
             </div>
         </section>
         <section>
-            <div class="making-review-section">
+            <div class="making-review-section hide-comment-form">
+                <strong class="txtSuccess" id="review-rsp"></strong>
                 {%csrf_token%}
-                <h5>Create Review</h5>
+                <h5 class="add-review">Create Review</h5>
                 <form id="review-form" action="{%url 'core:ajax-add-review' product.id%}" method="POST">
                     {{review_form}}
                     <button type="submit">Submit</button>
                 </form>
+
                 
             </div>
         </section>
