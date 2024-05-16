@@ -1,0 +1,52 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block css %} 
+<link rel="stylesheet" href="{% static 'assets/css/index.css' %}"/>
+{% endblock css %}
+
+{% block content %}
+<body>
+  <section class="ecanteen-inner">
+    <div class="main">
+
+      <div class="category-wrapper">
+        <div class="category">
+          <div class="cat-title">By Dietary Preference</div>
+          <div class="dietpref-content checklist"> </div>  <!--edit the word checklist-->
+        </div>
+        <div class="category">
+          <div class="cat-title">By Vendor</div>
+          <div class="vendor-content checklist"> </div>
+        </div>
+        <div class="category">
+          <div class="cat-title">By Tags</div>
+          <div class="tags-content checklist"> </div>
+        </div>
+        <div class="category">
+          <div class="cat-title">By Price</div>
+          <div class="price-content"> </div>
+        </div>
+      </div>
+
+      <div class="products">
+        <div class="list-view">
+          <div class="header"></div>
+          <div class="products">
+            {% for p in products %}
+              <a href="{% url 'core:product-detail' p.pid%}">
+                <h5>{{ p.title }}</h5>
+                <img class="product-thumbnail" src="{{ p.image.url }}" alt="" width="100"/>
+              </a>
+              <div class="product-category">{{p.category}}</div>
+              <div class="product-price">{{p.price}}</div>
+              <div class="product-vendor">{{p.vendor}}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+{% endblock content %}

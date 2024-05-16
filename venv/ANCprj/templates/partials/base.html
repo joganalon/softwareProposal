@@ -25,9 +25,13 @@
    
       <div class="search-bar">
           <div class="search-wrapper">
-            <input type="text" placeholder="search for items..." name="q"/>
-            <button class="search-button" type="submit">Search</button>
+            <form action="{%url 'core:search'%}" method="GET">
+              <input type="text" placeholder="search for items..." name="q"/>
+              <button class="search-button" type="submit">Search</button>
+            </form>
           </div>
+        
+
       </div>
   </div>
 
