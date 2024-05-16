@@ -12,64 +12,26 @@
 
     {% endblock css %}
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Alfa Slab One:wght@400&display=swap"/>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto Flex:wght@400&display=swap"/>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap"/>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"/>
-
     <title> {% block title %} eCanteen {% endblock title %}</title>
 
-    <script
-			  src="https://code.jquery.com/jquery-3.7.1.js"
-			  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-			  crossorigin="anonymous"></script>
   </head>
 
   <header class="frame-parent">
 
     <div class="logo-group">
-      <div class="anc-wrapper">
-        <h1 class="logo">ANC</h1>
-      </div>
-      <div class="sublogo">AteNeoCanteen</div>
+
     </div>
     
-    <div class="vector-parent">
+   
       <div class="search-bar">
-        <div class="frame-container">
-          <div class="all-categories-wrapper">
-            <div class="all-categories">All Categories</div>
+          <div class="search-wrapper">
+            <input type="text" placeholder="search for items..." name="q"/>
+            <button class="search-button" type="submit">Search</button>
           </div>
-          <div class="gridiconsdropdown-parent">
-            <img
-              class="gridiconsdropdown"
-              alt=""
-              src="./public/gridiconsdropdown.svg"
-              />
-
-            <div class="search-wrapper">
-              <div class="search">Search</div>
-            </div>
-          </div>
-        </div>
-        <img
-          class="material-symbolssearch-icon"
-          alt=""
-          src="./public/materialsymbolssearch.svg"
-        />
       </div>
-    </div>
+  </div>
+
+
 
     <div class="left-of-search">
       <div class="orders">
@@ -112,12 +74,8 @@
               <li><a href="{%url 'core:category-product-list' c.cid%}">{{c.title}}</a></li>
              {% endfor %}
             </div>
-            <img
-              class="gridiconsdropdown1"
-              alt=""
-              src="./public/gridiconsdropdown1.svg"
-            />
           </div>
+
           <div class="content-option-labels">
             <div class="e-canteen">E-Canteen</div>
           </div>
