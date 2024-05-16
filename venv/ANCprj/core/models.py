@@ -3,6 +3,7 @@ from shortuuid.django_fields import ShortUUIDField
 from django.utils.html import mark_safe
 from userauths.models import User
 from taggit.managers import TaggableManager
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 STATUS_CHOICE = (
@@ -55,7 +56,7 @@ class Vendor(models.Model):
 
     title = models.CharField(max_length=100, default='Vendor')
     image = models.ImageField(upload_to=user_directory_path, default='vendor.jpg')
-    description = models.TextField(null=True, blank=True, default='We are an amazing vendor.')
+    description = RichTextUploadingField(null=True, blank=True, default='We are an amazing vendor.')
 
     address = models.CharField(max_length=100, default='Ateneo')
     contact = models.CharField(max_length=100, default='09091234567')
@@ -84,12 +85,12 @@ class Product(models.Model):
 
     title = models.CharField(max_length=100, default='Product.')
     image = models.ImageField(upload_to='category', default='product.jpg')
-    description = models.TextField(null=True, blank=True, default='Order now.')
+    description = RichTextUploadingField(null=True, blank=True, default='Order now.')
 
     price = models.DecimalField(max_digits=999, decimal_places=2, default='49.99')
     old_price = models.DecimalField(max_digits=999, decimal_places=2, default='59.99')
 
-    ingredients = models.TextField(null=True, blank=True)
+    ingredients = RichTextUploadingField(null=True, blank=True)
 
     tags = TaggableManager(blank=True)
 

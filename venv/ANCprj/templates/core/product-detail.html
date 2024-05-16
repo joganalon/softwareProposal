@@ -16,7 +16,7 @@
                 <div class="description">
                     <h3>{{product.title}}</h3>
                     <h2>{{product.price}}</h2>
-                    <p>{{product.description|truncatechars:100}}</p>
+                    <p>{{product.description.safe|truncatechars:100}}</p>
                 </div>
                 <div class="tags">
                     {%for tag in product.tags.all%}
@@ -29,7 +29,7 @@
             <div class="texts-area">
                 <div class="undertextarea">
                     <h5>Ingredient</h5>
-                    <h6>{{product.ingredients}}</h6>
+                    <h6>{{product.ingredients.safe}}</h6>
                 </div>
                 <div class="undertextarea">
                     <h5>Vendor</h5>
