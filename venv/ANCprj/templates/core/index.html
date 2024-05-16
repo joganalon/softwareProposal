@@ -34,11 +34,13 @@
           <div class="header">All Products</div>
           <div class="products">
             {% for p in products %}
-              <div class="product-name">{{ p.title }}</div>
+              <a href="{% url 'core:product-detail' p.pid%}">
+                <h5>{{ p.title }}</h5>
+                <img class="product-thumbnail" src="{{ p.image.url }}" alt="" width="100"/>
+              </a>
               <div class="product-category">{{p.category}}</div>
               <div class="product-price">{{p.price}}</div>
               <div class="product-vendor">{{p.vendor}}</div>
-              <img class="product-thumbnail" src="{{ p.image.url }}" alt="" width="100"/>
             {% endfor %}
           </div>
         </div>

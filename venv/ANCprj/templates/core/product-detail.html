@@ -19,8 +19,8 @@
                     <p>{{product.description|truncatechars:100}}</p>
                 </div>
             </div>
-
         </section>
+        <section>
             <div class="texts-area">
                 <div class="undertextarea">
                     <h5>Ingredient</h5>
@@ -33,14 +33,26 @@
                     <h7>{{product.vendor.contact}}</h7>
                     <h7>{{product.vendor.authenticate_rating}}</h7>
                     <h7>{{product.vendor.chat_resp_time}}</h7>
-
                 </div>
                 <div class="undertextarea">
                     <h5>Reviews</h5>
                 </div>
             </div>
+        </section>
         <section>
-
+            {%if products%}
+            <div class="related=product">
+                <h5>Related Products</h5>
+                {% for p in products%}
+                    <a href="{%url 'core:product-detail' p.pid%}">
+                        <img class="product-thumbnail" src="{{p.image.url}}" width="100"/>
+                        <h6>{{p.title|truncatechars:20}}</h6>
+                    </a>
+                    <h7>{{p.price}}</h7>
+                    <h8>{{p.vendor}}</h8>
+                {%endfor%}
+            </div>
+            {%endif%}
         </section>
         
     </div>
