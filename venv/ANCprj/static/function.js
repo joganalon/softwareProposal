@@ -39,7 +39,7 @@ $("#review-form").submit(function(e){
 })
 
 //add to order functionality
-$("#add-to-orders").on("click", function(){
+$("#add-to-order").on("click", function(){
     let quantity=$("#product-quantity").val()
     let product_title=$(".product-title")
     let product_id=$(".product-id").val()
