@@ -1,26 +1,35 @@
-{% extends 'partials/base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'sign-in.css' %}"/>
+    <title> AteNeoCanteen </title>
+  </head>
 
-{% block title %} Sign In {% endblock title %}
+    <body>
+        <section>
+            <div class="account-login">
+                <div class="log-in-container">
+                    <h1>Login</h1>
+                    <p class="Don't have an account?"">Do not have an account? <a href="{% url 'userauths:sign-up' %}">Create here.</a></p>
+                </div>
+                <form method="POST">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <input type="text" required="" name="email" placeholder="Username or email"/>
+                    </div>
+                    <div class="form-group">
+                        <input required type="password" name="password" placeholder="Your password"/>
+                    </div>
 
-{% block content %}
-<body>
-    <div class="sign-in-container">
-        <p class="Don't have an account?"">Do not have an account? <a href="{% url 'userauths:sign-up' %}">Create here.</a></p>
-    </div>
-    <form method="POST">
-        {%csrf_token%}
-        <div class="form-group">
-            <input type="text" required="" name="email" placeholder="Username or email"/>
-        </div>
-        <div class="form-group">
-            <input required type="password" name="password" placeholder="Your password"/>
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn" name="login">Log in</button>
-        </div>
-    </form>
-
-</body>
-{% endblock content %}
+                    <div class="form-group">
+                        <button type="submit" class="btn" name="login">Log in</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

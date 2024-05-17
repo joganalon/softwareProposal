@@ -6,12 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="{% static '/assets/css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    {%block css%}
+    {%endblock css%}
     <title> AteNeoCanteen </title>
   </head>
 
   <header class="frame-parent">
-    <div class="logo-group"></div>
       <div class="search-bar">
         <form action="{%url 'core:search'%}" method="GET">
           <input type="text" placeholder="search for items..." name="q"/>
@@ -20,67 +21,15 @@
       </div>
     </div>
 
-    <div class="left-of-search">
-      <div class="orders">
-        <div class="left-of-search-txt">
-          <a href="#">Orders</a>
-        </div>
-      </div>
-
-      <div class="payment">
-        <div class="left-of-search-txt">
-          <a href="#">Payment</a>
-        </div>
-      </div>
-
       <div class="account">
-        <div class="left-of-search-txt">Account</div>
-        <div class="account-dropdown">
-          <ul>
-            <li>
               {% if request.user.is_authenticated %}
               <a href="{% url 'userauths:sign-out' %}">Sign out</a>
               {% else %}
               <a href="{% url 'userauths:sign-in' %}">Sign in</a>
               {% endif %}
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
 
-    <div class="breadcrumb"></div>
-
-    <div class="ecanteen">
-      <div class="below-searchbar-wrapper">
-        <div class="below-searchbar">
-          <div class="browse-option">
-            <div class="browse-all-categories-wrapper">
-              <a href="{% url 'core:category-list'%}">Browse All Categories</a>
-             {% for c in categories %}
-              <li><a href="{%url 'core:category-product-list' c.cid%}">{{c.title}}</a></li>
-             {% endfor %}
-            </div>
-          </div>
-
-          <div class="content-option-labels">
-            <div class="e-canteen">E-Canteen</div>
-          </div>
-          <div class="content-option-labels1">
-            <div class="profile">Profile</div>
-          </div>
-          <div class="content-option-labels2">
-            <div class="newsfeed">Newsfeed</div>
-          </div>
-          <div class="vendor-seat-labels-wrapper">
-            <div class="vendor-seat-labels">
-              <div class="vendors">Vendors</div>
-              <div class="seats">Seats</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     {% if messages %}
       {% for message in messages %}
         <div class="alert alert-{{message.tags}}">
@@ -88,6 +37,7 @@
         </div>
       {% endfor %}
     {% endif %}
+
     <script>
       setTimeout(() => {
         $(".alert").alert("close");
@@ -100,7 +50,7 @@
 {% endblock content %}
 
 <section class="footer">
-  <div class="footer-2">
+
     <div class="footer-info">
       <div class="brand">
         <div class="brand-name">
@@ -109,65 +59,7 @@
         <div class="ateneocanteen1">AteNeoCanteen</div>
       </div>
     </div>
-    <div class="navigation">
-      <div class="nav-container">
-        <div class="menu">
-          <div class="menuheader">
-            <div class="about">About</div>
-            <div class="features">Features</div>
-            <div class="pricing">Pricing</div>
-            <div class="gallery">Gallery</div>
-            <div class="team">Team</div>
-          </div>
-        </div>
-        <div class="social-links">
-          <div class="search-input">
-            <div class="search1">
-              <div class="search-container">
-                <div class="search2">search...</div>
-                <img class="union-icon" alt="" src="./public/union.svg" />
-              </div>
-            </div>
-          </div>
-          <div class="links">
-            <img class="social-icon" alt="" src="./public/social.svg" />
-          </div>
-          <div class="social-media">
-            <div class="social-icons">
-              <img
-                class="social-icon1"
-                alt=""
-                src="./public/social.svg"
-              />
-
-              <img
-                class="social-icon2"
-                alt=""
-                src="./public/social.svg"
-              />
-            </div>
-          </div>
-          <div class="links1">
-            <img
-              class="social-icon3"
-              alt=""
-              src="./public/social@2x.png"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="separator"></div>
-      <div class="menufooter">
-        <div class="privacy-policy">Privacy Policy</div>
-        <div class="terms-of-use">Terms of Use</div>
-        <div class="sales-and-refunds">Sales and Refunds</div>
-        <div class="legal">Legal</div>
-        <div class="site-map">Site Map</div>
-      </div>
-    </div>
-  </div>
 </section>
-</div>
 
 <script src="{%static 'function.js'%}"></script>
 </body>

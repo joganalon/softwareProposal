@@ -2,15 +2,13 @@
 {% load static %}
 
 {% block css %} 
-<link rel="stylesheet" href="{% static 'assets/css/index.css' %}"/>
+<link rel="stylesheet" href="{% static 'index.css' %}"/>
 {% endblock css %}
 
 {% block content %}
 <body>
-  <section class="ecanteen-inner">
-    <div class="main">
+    <main class="main">
 
-      <div class="category-wrapper">
         <div class="category">
           <div class="cat-title">By Food Group</div>
           <div class="dietpref-content checklist">
@@ -20,9 +18,7 @@
             <br/>
             {%endfor%}
           </div> 
-        </div>
 
-      <div class="category-wrapper">
         <div class="category">
           <div class="cat-title">By Category</div>
           <div class="category-content checklist">
@@ -46,11 +42,6 @@
         </div>
 
         <div class="category">
-          <div class="cat-title">By Tags</div>
-          <div class="tags-content checklist"> </div>
-        </div>
-
-        <div class="category">
           <div class="cat-title">By Price</div>
           <div class="price-content">
             <input type="range" value="{{min_max_price.price__min|floatformat:2}}" name="range" id="range" min="{{min_max_price.price__min}}" max="{{min_max_price.price__max}}" oninput="max_price.value=this.value"/>
@@ -59,12 +50,11 @@
             <button type="button" id="price-filter-btn">filter</button>
           </div>
         </div>
-      </div>
 
-      <div class="products">
+      <section class="products">
         <div class="list-view">
           <h2 class="header">All Products</h2>
-          <div class="products" id="filtered-products">
+          <div class="product" id="filtered-products">
             {% for p in products %}
               <a href="{% url 'core:product-detail' p.pid%}">
                 <h5>{{ p.title }}</h5>
@@ -73,7 +63,7 @@
               <div class="product-category">{{p.category}}</div>
               <div class="product-price">{{p.price}}</div>
               <div class="product-vendor">{{p.vendor}}</div>
-              <div class="add-order">
+              <div class="add-order-btn">
                 <input type="hidden" value="1" id="product-quantity-{{product.pid}}"/>
                 <input type="hidden" value="1" class="p-pid-{{p.id}}" value="{{p.id}}"/>
                 <input type="hidden" class="product-id-{{p.id}}" value="{{p.id}}"/>
@@ -83,9 +73,7 @@
             {% endfor %}
           </div>
         </div>
-      </div>
-
-    </div>
-  </section>
+      </section>
+    </main>
 </body>
 {% endblock content %}

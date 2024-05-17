@@ -1,118 +1,53 @@
-{% extends 'partials/base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'sign-up.css' %}"/>
+    <title> AteNeoCanteen </title>
+  </head>
 
-{% block css %} 
-<link rel="stylesheet" href="{% static '/assets/css/sign-up.css' %}" />
-{% endblock css %}
-
-{% block title %} Sign up {% endblock title %}
-
-{% block content %}
 <body>
-    <div class="create-account">
-        <section class="main-content">
-            <div class="account-creation">
-                <div class="account-title">
-                    <h1 class="create-an-account">Create an Account</h1>
-                </div>
+    <section class="main-content">
+        <div class="account-creation">
+            <div class="account-title">
+                <h1 class="create-an-account">Create an Account</h1>
+            </div>
 
-                <div class="login-form">
-                <div class="login-form-inner">
-                <div class="frame-parent2">
-                <div class="already-have-an-account-login-wrapper">
-                    <div class="already-have-an-container">
-                        <span>Already have an account? <a href="{% url 'userauths:sign-in' %}">Login.</a></span>
-                        <span>.</span>
-                    </div>
+            <div class="already-have-an-account-login-wrapper">
+                <div class="already-have-an-container">
+                    <span>Already have an account? <a href="{% url 'userauths:sign-in' %}">Login.</a></span>
                 </div>
+            </div>
                 
-                {% if forms.errors %}
+            {% if forms.errors %}
                 <div class="alert alert-danger">
                     <strong> {{form.errors}} </strong>
                 </div>
-                {% endif %}
+            {% endif %}
 
-                <div class="signup-form"> 
-                    <form method="post" method="POST">
-                        {%csrf_token%}
-                        <div class="form-group">
-                            {{form.username}}
-                        </div>
-                        <div class="form-group">
-                            {{form.email}}
-                        </div>
-                        <div class="form-group">
-                            {{form.password1}}
-                        </div>
-                        <div class="form-group">
-                            {{form.password2}}
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn" name="btn-sign-up">Submit and Register</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="security-code-field">
-                    <div class="security-code-input"></div>
-                    <button class="security-code-wrapper">
-                        <div class="security-code">Security Code</div>
-                    </button>
-                </div>
-
-                <div class="remember-me-field">
-                    <div class="frame-parent3">
-                        <div class="remember-me-input">
-                            <input class="remember-me-background" type="checkbox" />
-                                <div class="remember-me">Remember me</div>
-                            </div>
-                            <div class="user-type">
-                                <div class="user-type-buttons">
-                                    <div class="user-type-icons"></div>
-                                    <div class="i-am-a">I am a student</div>
-                                </div>
-                                <div class="user-type-buttons1">
-                                    <div class="user-type-buttons-child"></div>
-                                    <div class="i-am-a1">I am a vendor</div>
-                                </div>
-                            </div>
-
-                            <div class="terms-field">
-                                <input class="terms-background" type="checkbox" />
-                                <div class="i-agree-to">I agree to terms and policy.</div>
-                            </div>
-                        </div>
-
-                        <div class="remember-me-field-inner">
-                            <div class="frame-parent4">
-                                <input class="frame-input" type="checkbox" />
-
-                                <div class="frame-parent5">
-                                    <div class="frame-wrapper">
-                                        <button class="info-placeholder-wrapper">
-                                            <div class="info-placeholder">8 6 4 8</div>
-                                        </button>
-                                    </div>
-                                    <div class="learn-more">Learn more.</div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="signup-form"> 
+                <form method="post" method="POST">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        {{form.username}}
                     </div>
-                </div>
+                    <div class="form-group">
+                        {{form.email}}
+                    </div>
+                    <div class="form-group">
+                        {{form.password1}}
+                    </div>
+                    <div class="form-group">
+                        {{form.password2}}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn" name="btn-sign-up">Submit and Register</button>
+                    </div>
+                </form>
             </div>
-
-            <div class="social-login">
-                <button class="social-buttons">
-                    <div class="continue-with-google">Continue with Google</div>
-                </button>
-                <button class="social-buttons1">
-                    <div class="continue-with-adnu">Continue with ADNU Gbox</div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+        </div>   
+    </section>
 </body>
-
-{% endblock content%}

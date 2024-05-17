@@ -1,0 +1,186 @@
+/* index.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.main {
+    padding: 20px;
+}
+
+.product-area {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.product-images {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-image {
+    display: block;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.related-images img {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+}
+
+.description {
+    flex: 2;
+    padding: 20px;
+}
+
+.description h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#current-product-price {
+    font-size: 28px;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.description p {
+    font-size: 16px;
+    color: #555;
+}
+
+.tags {
+    margin: 10px 0;
+}
+
+.tags a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.tags a:hover {
+    text-decoration: underline;
+}
+
+.cart {
+    margin-top: 20px;
+}
+
+.cart input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.button-add-to-orders {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.button-add-to-orders:hover {
+    background-color: #0056b3;
+}
+
+.texts-area {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.undertextarea {
+    margin-bottom: 20px;
+}
+
+.undertextarea h5 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.undertextarea h6, 
+.undertextarea h7, 
+.undertextarea h8 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.undertextarea img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.comment-list {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.comment-list i {
+    color: gold;
+}
+
+.making-review-section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.making-review-section .add-review {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.related-product {
+    margin-top: 20px;
+}
+
+.related-product h5 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.related-product a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.related-product a:hover {
+    text-decoration: underline;
+}
+
+.related-product .product-thumbnail {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.related-product h6 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.related-product h7, 
+.related-product h8 {
+    font-size: 14px;
+    color: #555;
+}
