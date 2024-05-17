@@ -5,36 +5,15 @@
 <body>
   <section class="ecanteen-inner">
     <div class="main">
-        <div class="category-wrapper">
-            <div class="category">
-            <div class="cat-title">By Dietary Preference</div>
-            <div class="dietpref-content checklist"> </div>  <!--edit the word checklist-->
-        </div>
-        <div class="category">
-            <div class="cat-title">By Vendor</div>
-            <div class="vendor-content checklist"> </div>
-        </div>
-        <div class="category">
-            <div class="cat-title">By Tags</div>
-            <div class="tags-content checklist"> </div>
-        </div>
-        <div class="category">
-            <div class="cat-title">By Price</div>
-            <div class="price-content"> </div>
-        </div>
-      </div>
-
-      
-
         
       <div class="category-holder">
         {%if query%}
-        <div class="big-txt">{{query}}</div>
+        <h4>{{query}}</h4>
         {%else%}
         <h3 class="big-txt">No searched item</h3>
         {%endif%}
         <div class="path cat-path">
-            <a href="#">Home</a>
+            <h6><a href="#">Home</a></h6>
         </div>
     </div>
 
