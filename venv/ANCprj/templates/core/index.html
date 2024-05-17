@@ -15,7 +15,7 @@
           <div class="cat-title">By Food Group</div>
           <div class="dietpref-content checklist">
             {%for f in food_groups%}
-            <input class="form-check-input filter-checkbox" data-filter="category" type="checkbox" name="checkbox" id="ccheckbox1" value="{{c.id}}" /> 
+            <input class="form-check-input filter-checkbox" data-filter="foodgroup" type="checkbox" name="checkbox" id="ccheckbox1" value="{{f.id}}" /> 
             <label class="form-check-label" for="checkbox1"><span>{{f.title}}</span></label>
             <br/>
             {%endfor%}
