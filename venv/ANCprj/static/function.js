@@ -76,16 +76,35 @@ $("#add-to-cart-btn").on("click", function(){
 //filter
 $(document).ready(function(){
     $(".filter-checkbox").on("click", function(){
+        console.log("a checkbox has been clicked");
+
         let filter_object = {}
 
-        $(".filter-checkbox").each(function(index){
+        $(".filter-checkbox").each(function(){
             let filter_value = $(this).val()
             let filter_key = $(this).data("filter")
-            console.log(filter_value, filter_key);
-            filter_object(filter_key)=Array.from(document.querySelectorAll('input[data-filter='+filter_key+']:checked')).map(function(element){
+
+            console.log("Filter value os:", filter_value);
+            console.log("Filter key is:", filter_key);
+
+            filter_object[filter_key]=Array.from(document.querySelectorAll('input[data-filter='+filter_key+']:checked')).map(function(element){
                 return element.value
             })
         })
-        console.log(filter_object);
+        console.log("Filter objects is: ", filter_object);
+        $.ajax({
+            url:'/filter-products',
+            data: filter_object,
+            dataType: 'json',
+            beforeSend:function(){
+                console.log("trying to filter product...");
+            },
+            success:function(response){
+                console.log(response);
+                console.log("data filtered successfully...");
+                $("#filtered-products").html(response.data)
+            }
+        })
     })
 })
+

@@ -4,15 +4,16 @@ from taggit.models import Tag
 from django.db.models import Avg
 from core.forms import ProductReviewForm
 from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 def index(request):
     products = Product.objects.all()
     vendors = Vendor.objects.all()
-    food_groups = FoodGroup.objects.all()
+    foodgroups = FoodGroup.objects.all()
     context = {
         'products':products,
         'vendors':vendors,
-        'food_groups':food_groups
+        'foodgroups':foodgroups
     }
 
     return render(request, 'core/index.html', context)
@@ -38,10 +39,10 @@ def product_list_category_view(request, cid):
     return render(request, 'core/category-product-list.html')
 
 def foodGroup_list_view(request):
-    food_groups = FoodGroup.objects.all()
+    foodgroups = FoodGroup.objects.all()
 
     context = {
-        'food_groups': food_groups
+        'foodgroups': foodgroups
     }
 
     return render(request, 'core/food-group-list.html', context)
@@ -141,3 +142,17 @@ def search_view(request):
         'query':query
     }
     return render(request, 'core/search.html', context)
+
+def filter_product(request):
+    categories = request.GET.getlist('category[]')
+    vendors = request.GET.getlist('vendor[]')
+    products=Product.objects.filter(product_status='published').order_by('-id').distinct()
+    if len(categories) > 0:
+        products = products.filter(category__id__in=categories).distinct()
+    if len(vendors) > 0:
+        products=products.filter(vendor__id__in=vendors).distinct()
+    context={
+        'products':products
+    }
+    data=render_to_string('core/asynch/product-list.html',context)
+    return JsonResponse({'data':data})

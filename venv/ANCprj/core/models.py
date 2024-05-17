@@ -46,7 +46,7 @@ class Category(models.Model):
 
 class FoodGroup(models.Model):
     fid = ShortUUIDField(unique=True, length=10, max_length=20, prefix='foo', alphabet='abcdefgh12345')
-    title = models.CharField(max_length=100, default='Food')
+    title = models.CharField(max_length=100, default='Type of Food')
     
     class Meta:
         verbose_name_plural = 'Food Groups'

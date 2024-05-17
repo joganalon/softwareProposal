@@ -1,0 +1,13 @@
+<body>
+    <div id="filtered-products">
+    {% for p in products %}
+    <a href="{% url 'core:product-detail' p.pid%}">
+      <h5>{{ p.title }}</h5>
+      <img class="product-thumbnail" src="{{ p.image.url }}" alt="" width="100"/>
+    </a>
+    <div class="product-category">{{p.category}}</div>
+    <div class="product-price">{{p.price}}</div>
+    <div class="product-vendor">{{p.vendor}}</div>
+  {% endfor %}
+</div>
+</body>

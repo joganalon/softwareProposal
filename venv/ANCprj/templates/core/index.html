@@ -14,12 +14,24 @@
         <div class="category">
           <div class="cat-title">By Food Group</div>
           <div class="dietpref-content checklist">
-            {%for f in food_groups%}
-            <input class="form-check-input filter-checkbox" data-filter="foodgroup" type="checkbox" name="checkbox" id="ccheckbox1" value="{{f.id}}" /> 
+            {%for f in foodgroups%}
+            <input class="form-check-input filter-checkbox" data-filter="foodgroup" type="checkbox" name="checkbox" id="fcheckbox1" value="{{f.id}}" /> 
             <label class="form-check-label" for="checkbox1"><span>{{f.title}}</span></label>
             <br/>
             {%endfor%}
-          </div>  <!--edit the word checklist-->
+          </div> 
+        </div>
+
+      <div class="category-wrapper">
+        <div class="category">
+          <div class="cat-title">By Category</div>
+          <div class="category-content checklist">
+            {%for c in categories%}
+            <input class="form-check-input filter-checkbox" data-filter="category" type="checkbox" name="checkbox" id="vcheckbox1" value="{{c.id}}" /> 
+            <label class="form-check-label" for="checkbox1"><span>{{c.title}}</span></label>
+            <br/>
+            {%endfor%}
+          </div> 
         </div>
 
         <div class="category">
@@ -46,7 +58,7 @@
       <div class="products">
         <div class="list-view">
           <div class="header">All Products</div>
-          <div class="products">
+          <div class="products" id="filtered-products">
             {% for p in products %}
               <a href="{% url 'core:product-detail' p.pid%}">
                 <h5>{{ p.title }}</h5>
