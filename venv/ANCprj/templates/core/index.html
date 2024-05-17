@@ -16,7 +16,7 @@
           <div class="dietpref-content checklist">
             {%for f in foodgroups%}
             <input class="form-check-input filter-checkbox" data-filter="foodgroup" type="checkbox" name="checkbox" id="fcheckbox1" value="{{f.id}}" /> 
-            <label class="form-check-label" for="checkbox1"><span>{{f.title}}</span></label>
+            <label class="form-check-label" for="fcheckbox1"><span>{{f.title}}</span></label>
             <br/>
             {%endfor%}
           </div> 
@@ -28,7 +28,7 @@
           <div class="category-content checklist">
             {%for c in categories%}
             <input class="form-check-input filter-checkbox" data-filter="category" type="checkbox" name="checkbox" id="vcheckbox1" value="{{c.id}}" /> 
-            <label class="form-check-label" for="checkbox1"><span>{{c.title}}</span></label>
+            <label class="form-check-label" for="ccheckbox1"><span>{{c.title}}</span></label>
             <br/>
             {%endfor%}
           </div> 
@@ -39,7 +39,7 @@
           <div class="vendor-content checklist">
             {%for v in vendors%}
             <input class="form-check-input filter-checkbox" data-filter="vendor" type="checkbox" name="checkbox" id="vcheckbox1" value="{{v.id}}" /> 
-            <label class="form-check-label" for="checkbox1"><span>{{v.title}}</span></label>
+            <label class="form-check-label" for="vcheckbox1"><span>{{v.title}}</span></label>
             <br/>
             {%endfor%}
           </div>
