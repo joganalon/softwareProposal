@@ -67,7 +67,7 @@ $("#add-to-orders").on("click", function(){
         success: function(response){
             this_val.html("item added to orders")
             console.log("Added product to orders");
-            $(".order-items.coums").text(response.totaloderitems)
+            $(".order-items.counts").text(response.totaloderitems)
 
         }
     })
