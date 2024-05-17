@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from core.models import Product, Vendor, Category, FoodTray, OrderedProducts, Favourite, ProductImages, ProductReview, TableNum
+from core.models import Product, Vendor, Category, FoodTray, OrderedProducts, Favourite, ProductImages, ProductReview, TableNum, FoodGroup
 from taggit.models import Tag
 from django.db.models import Avg
 from core.forms import ProductReviewForm
@@ -7,8 +7,12 @@ from django.http import JsonResponse
 
 def index(request):
     products = Product.objects.all()
+    vendors = Vendor.objects.all()
+    food_groups = FoodGroup.objects.all()
     context = {
         'products':products,
+        'vendors':vendors,
+        'food_groups':food_groups
     }
 
     return render(request, 'core/index.html', context)
@@ -32,6 +36,26 @@ def product_list_category_view(request, cid):
     }
 
     return render(request, 'core/category-product-list.html')
+
+def foodGroup_list_view(request):
+    food_groups = FoodGroup.objects.all()
+
+    context = {
+        'food_groups': food_groups
+    }
+
+    return render(request, 'core/food-group-list.html', context)
+
+def product_list_foodGroup_view(request, fid):
+    food_group = FoodGroup.objects.get(fid=fid)
+    products = Product.objects.filter(product_status='published', food_group=food_group)
+
+    context = {
+        'food_group':food_group,
+        'products':products,
+    }
+
+    return render(request, 'core/food-group-product-list.html', context)
 
 def vendor_list_view(request):
     vendors = Vendor.objects.all()
@@ -111,7 +135,7 @@ def ajax_add_review(request, pid):
 def search_view(request):
     query = request.GET.get('q')
 
-    products=Product.objects.filter(title__icontains=query, description__icontains=query).order_by('-date')
+    products=Product.objects.filter(title__icontains=query).order_by('-date')
     context = {
         'products': products,
         'query':query

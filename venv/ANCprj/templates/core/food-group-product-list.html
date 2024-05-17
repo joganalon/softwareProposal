@@ -1,0 +1,18 @@
+{%extends 'partials/base.html'%}
+
+{%block content%}
+<body>
+    <div class="category-holder">
+        <div class="big-txt">{{food_group.title}}</div>
+    </div>
+
+    <div class="main">
+        <div class="product">
+            {%for p in products%}
+                <img class="product-thumbnail" src="{{p.image.url}}"/>
+                <div class="product-name">{{p.title}}</div>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+{%endblock content%}

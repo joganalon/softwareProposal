@@ -36,17 +36,24 @@ def user_directory_path(instance, filename):
 class Category(models.Model):
     cid = ShortUUIDField(unique=True, length=10, max_length=20, prefix='cat', alphabet='abcdefgh12345')
     title = models.CharField(max_length=100, default='Meal')
-    image = models.ImageField(upload_to='category', default='category.jpg')
 
     class Meta:
         verbose_name_plural = 'Categories'
-
-    def category_image(self):
-        return mark_safe('<img src="%s" width="50" height="50" />' % (self.image.url))
     
     def __str__(self):
         return self.title
     
+
+class FoodGroup(models.Model):
+    fid = ShortUUIDField(unique=True, length=10, max_length=20, prefix='foo', alphabet='abcdefgh12345')
+    title = models.CharField(max_length=100, default='Food')
+    
+    class Meta:
+        verbose_name_plural = 'Food Groups'
+    
+    def __str__(self):
+        return self.title
+
 #class Tags(models.Model):
  #   pass
     
@@ -81,6 +88,7 @@ class Product(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='category')
+    food_group = models.ForeignKey(FoodGroup, on_delete=models.SET_NULL, null=True, related_name='food_group')
     vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, related_name='product')
 
     title = models.CharField(max_length=100, default='Product.')

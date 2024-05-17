@@ -1,33 +1,42 @@
 {% extends 'partials/base.html' %}
 {% load static %}
 
-{% block css %} 
-<link rel="stylesheet" href="{% static 'assets/css/index.css' %}"/>
-{% endblock css %}
-
 {% block content %}
 <body>
   <section class="ecanteen-inner">
     <div class="main">
-
-      <div class="category-wrapper">
-        <div class="category">
-          <div class="cat-title">By Dietary Preference</div>
-          <div class="dietpref-content checklist"> </div>  <!--edit the word checklist-->
+        <div class="category-wrapper">
+            <div class="category">
+            <div class="cat-title">By Dietary Preference</div>
+            <div class="dietpref-content checklist"> </div>  <!--edit the word checklist-->
         </div>
         <div class="category">
-          <div class="cat-title">By Vendor</div>
-          <div class="vendor-content checklist"> </div>
+            <div class="cat-title">By Vendor</div>
+            <div class="vendor-content checklist"> </div>
         </div>
         <div class="category">
-          <div class="cat-title">By Tags</div>
-          <div class="tags-content checklist"> </div>
+            <div class="cat-title">By Tags</div>
+            <div class="tags-content checklist"> </div>
         </div>
         <div class="category">
-          <div class="cat-title">By Price</div>
-          <div class="price-content"> </div>
+            <div class="cat-title">By Price</div>
+            <div class="price-content"> </div>
         </div>
       </div>
+
+      
+
+        
+      <div class="category-holder">
+        {%if query%}
+        <div class="big-txt">{{query}}</div>
+        {%else%}
+        <h3 class="big-txt">No searched item</h3>
+        {%endif%}
+        <div class="path cat-path">
+            <a href="#">Home</a>
+        </div>
+    </div>
 
       <div class="products">
         <div class="list-view">

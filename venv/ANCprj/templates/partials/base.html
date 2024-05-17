@@ -5,37 +5,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
-
     <link rel="stylesheet" href="{% static '/assets/css/index.css' %}" />
-
-    {% block css %}
-
-    {% endblock css %}
-
     <title> {% block title %} eCanteen {% endblock title %}</title>
-
   </head>
 
   <header class="frame-parent">
-
-    <div class="logo-group">
-
-    </div>
-    
-   
+    <div class="logo-group"></div>
       <div class="search-bar">
-          <div class="search-wrapper">
-            <form action="{%url 'core:search'%}" method="GET">
-              <input type="text" placeholder="search for items..." name="q"/>
-              <button class="search-button" type="submit">Search</button>
-            </form>
-          </div>
-        
-
+        <form action="{%url 'core:search'%}" method="GET">
+          <input type="text" placeholder="search for items..." name="q"/>
+          <button class="search-button" type="submit">Search</button>
+        </form>
       </div>
-  </div>
-
-
+    </div>
 
     <div class="left-of-search">
       <div class="orders">

@@ -12,13 +12,27 @@
 
       <div class="category-wrapper">
         <div class="category">
-          <div class="cat-title">By Dietary Preference</div>
-          <div class="dietpref-content checklist"> </div>  <!--edit the word checklist-->
+          <div class="cat-title">By Food Group</div>
+          <div class="dietpref-content checklist">
+            {%for f in food_groups%}
+            <input class="form-check-input filter-checkbox" data-filter="category" type="checkbox" name="checkbox" id="ccheckbox1" value="{{c.id}}" /> 
+            <label class="form-check-label" for="checkbox1"><span>{{f.title}}</span></label>
+            <br/>
+            {%endfor%}
+          </div>  <!--edit the word checklist-->
         </div>
+
         <div class="category">
           <div class="cat-title">By Vendor</div>
-          <div class="vendor-content checklist"> </div>
+          <div class="vendor-content checklist">
+            {%for v in vendors%}
+            <input class="form-check-input filter-checkbox" data-filter="vendor" type="checkbox" name="checkbox" id="vcheckbox1" value="{{v.id}}" /> 
+            <label class="form-check-label" for="checkbox1"><span>{{v.title}}</span></label>
+            <br/>
+            {%endfor%}
+          </div>
         </div>
+
         <div class="category">
           <div class="cat-title">By Tags</div>
           <div class="tags-content checklist"> </div>

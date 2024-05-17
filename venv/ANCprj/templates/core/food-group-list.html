@@ -1,0 +1,27 @@
+{%extends 'partials/base.html'%}
+
+{%block content%}
+<body>
+    <div class="category-holder">
+        <div class="big-txt">Food Groups</div>
+        <div class="path cat-path">
+            <a href="#">Home</a>
+            <p>Category</p>
+        </div>
+    </div>
+
+
+
+    <div class="main">
+        <div class="notsobig-txt">{{food_groups.count}} Food Groups</div>
+        <div clas="inside">
+            {%for f in food_groups%}
+                <a href="{%url 'core:food-group-product-list' f.fid%}">
+                    <div class="product-name">{{f.title}}</div>
+                </a>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+
+{%endblock content%}

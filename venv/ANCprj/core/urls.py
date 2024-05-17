@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import index, category_list_view, product_list_category_view, vendor_list_view, vendor_detail, product_detail_view, ajax_add_review, search_view #tag_list
+from core.views import index, foodGroup_list_view, product_list_foodGroup_view, category_list_view, product_list_category_view, vendor_list_view, vendor_detail, product_detail_view, ajax_add_review, search_view #tag_list
 
 app_name = 'core'
 
@@ -10,6 +10,10 @@ urlpatterns = [
     #category
     path('category/', category_list_view, name='category-list'),
     path('category/<cid>/', product_list_category_view, name='category-product-list'),
+
+    #foodgroup
+    path('food-group/', foodGroup_list_view, name='food-group-list'),
+    path('food-group/<fid>/', product_list_category_view, name='food-group-product-list'),
 
     #vendor
     path('vendor/', vendor_list_view, name='vendor-list'),

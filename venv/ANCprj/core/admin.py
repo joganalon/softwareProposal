@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Product, Vendor, Category, FoodTray, OrderedProducts, Favourite, ProductImages, ProductReview, TableNum
+from core.models import Product, Vendor, Category, FoodTray, OrderedProducts, Favourite, ProductImages, ProductReview, TableNum, FoodGroup
 
 class ProductImagesAdmin(admin.TabularInline):
     model = ProductImages
@@ -9,7 +9,10 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['user', 'title', 'product_image', 'category', 'vendor', 'price', 'featured', 'product_status']
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category_image']
+    list_display = ['title']
+
+class FoodGroupAdmin(admin.ModelAdmin):
+    list_display = ['title']
 
 class VendorAdmin(admin.ModelAdmin):
     list_display = ['title', 'vendor_image']
@@ -31,6 +34,7 @@ class TableNumAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
+admin.site.register(FoodGroup, FoodGroupAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Vendor, VendorAdmin)
 admin.site.register(FoodTray, FoodTrayAdmin)
