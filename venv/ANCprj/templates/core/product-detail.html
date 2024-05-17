@@ -16,7 +16,7 @@
                 </div>
                 <div class="description">
                     <h3>{{product.title}}</h3>
-                    <h2 class="current-product-price">{{product.price}}</h2>
+                    <h2 id="current-product-price">{{product.price}}</h2>
                     <p>{{product.description.safe|truncatechars:100}}</p>
                 </div>
                 <div class="tags">
@@ -28,8 +28,8 @@
                     <input type="hidden" value="{{product.id}}" class="product-id" name="" id=""/>
                     <input type="hidden" class="product-title" value="{{product.title}}" name="" id=""/>
                     <input type="number" value="1" name="" id="product-quantity" class="w-25 mb-20"/>
-                    <button type="submit" id="add-to-cart-btn" class="button button-add-to-cart">
-                        <i class="f1-rs-shopping-cart"></i>Add to Orders</button>
+                    <button type="submit" id="add-to-orders"  class="button button-add-to-orders">
+                        Add to Orders
                     </button>
                 </div>
             </div>

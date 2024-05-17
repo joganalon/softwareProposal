@@ -168,3 +168,28 @@ def filter_product(request):
     }
     data=render_to_string('core/asynch/product-list.html',context)
     return JsonResponse({'data':data})
+
+def add_to_orders(request):
+    order_product={}
+
+    order_product[str(request.GET['id'])]={
+        'title': request.GET['title'],
+        'qty': request.GET['qty'],
+        'price': request.GET['price'],
+    }
+
+    if 'order_data_obj' in request.session:
+        if str(request.GET['id']) in request.session['order_data_obj']:
+            order_data = request.session['order_data_obj']
+            order_data[str(request.GET['id'])]['qty']= int(order_product[str(request.GET['id'])]['aty'])
+            order_data.update(order_data)
+            request.session['order_data_obj']=order_data
+        else:
+            order_data=request.session['order_data_obj']
+            order_data.update(order_product)
+            request.session['order_data_obj']=order_data
+    else:
+        request.session['order_data_obj']=order_product
+    return JsonResponse({'data':request.session['order_data_obj'], 'totalorderitems': len(request.session['order_data_obj'])})
+
+

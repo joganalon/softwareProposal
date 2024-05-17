@@ -39,11 +39,11 @@ $("#review-form").submit(function(e){
 })
 
 //add to order functionality
-$("#add-to-cart-btn").on("click", function(){
+$("#add-to-orders").on("click", function(){
     let quantity=$("#product-quantity").val()
     let product_title=$(".product-title")
-    let product_id=$(".product.id").val()
-    let product_price=$(".current-product-price").text()
+    let product_id=$(".product-id").val()
+    let product_price=$("#current-product-price").text()
     let this_val=$(this)
     
     console.log("Quantity:", quantity);
@@ -53,7 +53,7 @@ $("#add-to-cart-btn").on("click", function(){
     console.log("Current Element:", this_val);
 
     $.ajax({
-        url:'/add-to-cart',
+        url:'/add-to-orders',
         data:{
             'id':product_id,
             'qty':quantity,
@@ -62,11 +62,12 @@ $("#add-to-cart-btn").on("click", function(){
         },
         dataType: 'json',
         beforeSend: function(){
-            console.log("Adding product to cart...");
+            console.log("Adding product to orders...");
         },
-        success: function(){
-            this_val.html("item added to cart")
-            console.log("Added product to cart");
+        success: function(response){
+            this_val.html("item added to orders")
+            console.log("Added product to orders");
+            $(".order-items.coums").text(response.totaloderitems)
 
         }
     })
