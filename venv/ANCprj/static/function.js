@@ -1,8 +1,16 @@
 //adding review
 console.log("working fine");
 
-$("#review-from").submit(function(e){
+const monthNames = [
+    "Jan","Feb","Mar","Apr","May","June",
+    "July","Aug","Sept","Oct","Nov","Dec"
+];
+
+$("#review-form").submit(function(e){
     e.preventDefault();
+
+    let dt=new Date();
+    let time=dt.getDate() + " "+monthNames[dt.getUTCMonth]+" "+dt.getFullYear();
 
     $.ajax({
         data:$(this).serialize(),
@@ -17,8 +25,15 @@ $("#review-from").submit(function(e){
                 $(".hide-comment-form").hide()
                 $(".add-review").hide()
 
-                let _html=
+                let _html='<h4>'+response.context.user+'</h4>'
+                    _html+='<h6>'+time+'</h6>'
+                    for(let i=1;i<response.context.rating;i++){
+                        _html+='<i>*</i'
+                    }
+                    _html+='<p>'+response.context.review+'<p>'                 
+                    $(".comment-list").prepend(_html)
             }
+            
         }
     })
 })

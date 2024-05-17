@@ -51,23 +51,33 @@
                 <div class="undertextarea">
                     <h5>Reviews {{reviews.count}}</h5> 
                     <h6>{{average_rating.rating|floatformat}} out of 5 Stars</h6>
-                    {%for r in reviews %}
-                        {{r.user.username|title}}
-                        {{r.date|date:'d M, Y'}}
-                        {{r.review}}
-                    {%endfor%}
+                    <div class="comment-list">
+                        {%for r in reviews %}
+                            {{r.user.username|title}}
+                            {{r.date|date:'d M, Y'}}
+                            {%for s in r.rating|ljust:r.rating%}
+                                <i>*</i>
+                            {%endfor%}
+                            {{r.review}} <br>
+                        {%endfor%}
+                    </div>
                 </div>
             </div>
         </section>
         <section>
+            {%if make_review == True %}
+            {%if request.user.is_authenticated%}
             <div class="making-review-section hide-comment-form">
-                <strong class="txtSuccess" id="review-rsp"></strong>
-                {%csrf_token%}
+               
                 <h5 class="add-review">Create Review</h5>
                 <form id="review-form" action="{%url 'core:ajax-add-review' product.id%}" method="POST">
+                    <strong class="txtSuccess" id="review-rsp"></strong>
+                    {%csrf_token%}
                     {{review_form}}
                     <button type="submit">Submit</button>
                 </form>
+            {%endif%}
+            {%endif%}
 
                 
             </div>

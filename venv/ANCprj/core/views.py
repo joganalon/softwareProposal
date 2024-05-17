@@ -3,6 +3,7 @@ from core.models import Product, Vendor, Category, FoodTray, OrderedProducts, Fa
 from taggit.models import Tag
 from django.db.models import Avg
 from core.forms import ProductReviewForm
+from django.http import JsonResponse
 
 def index(request):
     products = Product.objects.all()
@@ -55,6 +56,11 @@ def product_detail_view(request, pid):
     reviews = ProductReview.objects.filter(product=product).order_by('-date')
     average_rating = ProductReview.objects.filter(product=product).aggregate(rating=Avg('rating'))
     review_form = ProductReviewForm()
+    make_review = True
+    if request.user.is_authenticated:
+        user_review_count=ProductReview.objects.filter(user=request.user, product=product).count()
+        if user_review_count>0:
+            make_review=False
     context = {
         'product':product,
         'product_images':product_images,
