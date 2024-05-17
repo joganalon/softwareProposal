@@ -49,15 +49,21 @@
           <div class="cat-title">By Tags</div>
           <div class="tags-content checklist"> </div>
         </div>
+
         <div class="category">
           <div class="cat-title">By Price</div>
-          <div class="price-content"> </div>
+          <div class="price-content">
+            <input type="range" value="{{min_max_price.price__min|floatformat:2}}" name="range" id="range" min="{{min_max_price.price__min}}" max="{{min_max_price.price__max}}" oninput="max_price.value=this.value"/>
+            <h6>from {{min_max_price.price__min|floatformat:2}} to {{min_max_price.price__max|floatformat:2}}</h6>
+            <input type="number" value="{{min_max_price.price__min|floatformat:2}}" id="max_price" min="{{min_max_price.price__min}}" max="{{min_max_price.price__max}}" onkeyup="range.value=this.value"/>
+            <button type="button" id="price-filter-btn">filter</button>
+          </div>
         </div>
       </div>
 
       <div class="products">
         <div class="list-view">
-          <div class="header">All Products</div>
+          <h2 class="header">All Products</h2>
           <div class="products" id="filtered-products">
             {% for p in products %}
               <a href="{% url 'core:product-detail' p.pid%}">
